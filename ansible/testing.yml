@@ -1,0 +1,21 @@
+# Ignore; testing purposes only, does not work
+---
+
+- name: Network Getting Started First Playbook
+  connection: network_cli
+  gather_facts: false
+  hosts: all
+  vars:
+    ansible_ssh_private_key_file: /home/kali/case-studies/testing/keys/ssh/id_rsa
+  tasks:
+    - name: Display the config
+      debug:
+        msg: "The hostname is {{ ansible_hostname }} and the OS is {{ ansible_net_version }}"
+
+# Alternate way of shutting the Kali systems down
+- name: Shutdown Kali Based Systems
+      command: "{{ item }}" 
+      with_items:
+        - /bin/sleep 5s
+        - /sbin/poweroff
+      when: ansible_os_family == "Kali GNU/Linux"
