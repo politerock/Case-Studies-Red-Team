@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  vars:
+    ansible_user: Administrator@team#.tu
+    ansible_password: Password1!
+    ansible_connection: winrm
+    ansible_winrm_transport: kerberos
+  tasks:
+    - name : System Info
+      debug:
+        msg: "OS is {{ ansible_os_family }}"
