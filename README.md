@@ -3,7 +3,7 @@
 A place for all of the case studies red team scripts for the semester. 
 
 ## Project Ideas
----
+
 | Projects          | Are We Doing it? | Status  |
 | ------------- |:-------------:| -----:|
 | Ansible Kali Shutdown Script     | Yes | In Progress |
