@@ -1,6 +1,6 @@
 # Notes
 
-Before deploying ansible script you need to ssh-keyscan for SSH authenticity checking?
+Before deploying ansible script you need to ssh-keyscan for SSH authenticity checking
 - https://www.howtoforge.com/tutorial/setup-new-user-and-ssh-key-authentication-using-ansible/
 
 Or maybe just turn that off in ansible:
