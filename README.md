@@ -1,2 +1,3 @@
 # Case-Studies-Red-Team
-Case Studies Red Team scripts, etc.
+
+A place for all of the case studies red team scripts for the semester.
