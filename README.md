@@ -11,6 +11,7 @@ A place for all of the case studies red team scripts for the semester.
 | SMB Bruteforce                   | Yes | Not Built |
 | RDP Bruteforce                   | Not Decided | Not Built |
 | Base64 Shell                     | Not Decided | Not Built |
+| Website Stuff                    | Yes | In Progress|
 
 
 ## Individual Project Breakdowns
