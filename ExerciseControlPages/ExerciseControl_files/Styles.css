@@ -1,0 +1,184 @@
+body {
+	font-family:arial, helvetica;
+	font-size:16px;
+	background:#111111;
+	color:#AAAAAA;
+	padding:10px;
+}
+#Container {
+	width:900px;
+	margin:auto;
+}
+#Top {
+	background:black url(images/Top.jpg) no-repeat;
+	width:100%;
+	text-align:right;
+	padding-top:20px;
+}
+#Header {
+	background:black url(images/Mid.jpg) repeat-y;
+	padding-left:10px;
+}
+#Header table {
+	width:600px;
+	margin-top:40px;
+	margin-left:0px;
+}
+#Header img#Holo {
+	float:right;
+	margin-right:40px;
+}
+#Header #Title {
+	font-family:aurabesh, arial, helvetica;
+	font-size:28px;
+	color:#990000;
+	padding:10px;
+}
+#Header #Subtitle {
+	padding-left:35px;
+	padding-bottom:10px;
+	font-size:20px;
+}
+#Header img#Title {
+	width:650px;
+	margin:10px;
+}
+#TopMenu {
+	background:black url(images/MenuBack.jpg) no-repeat;
+	height:25px;
+	padding-top:5px;
+	padding-left:20px;
+}
+#BodyContainer {
+	font-size:5px;
+	background:#333333 url(images/Mid.jpg) repeat-y;
+}
+#Body {
+	background:#333333;
+	border:3px double #990000;
+	font-size:16px;
+	width:650px;
+	margin-left:210px;
+	padding:10px;
+}
+#Body h1, h2, h3, h4 {
+	color:#CCCCCC;
+}
+#Body h1 {
+	background:#990000;
+	border:3px outset #111111;
+	padding:2px;
+}
+#Body h2 {
+	background:#222222;
+	border:3px double #990000;
+	padding:2px;
+}
+#Body h3 {
+	border-left:3px ridge #FF0000;
+	border-top:3px ridge #FF0000;
+	padding:2px;
+}
+#Body h4 {
+	text-decoration:overline underline;
+}
+#Body fieldset {
+	border:3px double #990000;
+	padding:10px;
+}
+#Body legend {
+	color:#FF0000;
+	font-size:18px;
+}
+#Body blockquote {
+	background:#110000;
+	color:#990000;
+	border:1px solid #FF0000;
+	padding:10px;
+        font-size:95%
+}
+#Body a {
+	color:#CCCCCC;
+}
+#Body a:hover {
+	color:white;
+}
+#Body li {
+	list-style:url(images/Li1.gif);
+}
+#Body li li {
+	list-style:url(images/Li2.gif);
+}
+#Body li li li {
+	list-style:url(images/Li3.gif);
+}
+#Body img {
+	border:1px solid black;
+}
+/* IE Workaround for horizontal rules */
+#Body div.hr {
+	background:#990000 url(images/HR.gif) no-repeat scroll center;
+	height:5px;
+	text-align:center;
+}
+#Body div.hr hr {
+	display:none;
+}
+/* End IE Workaround */
+#Footer {
+	background:#333333 url(images/Bottom.jpg) no-repeat;
+	height:30px;
+	font-size:10px;
+	text-align:center;
+	padding:10px;
+}
+#Footer a {
+	color:#AAAAAA;
+}
+#Footer a:hover {
+	color:white;
+}
+/* CSS Menu */
+#Menu {
+	background:none;
+	width:200px;
+	float:left;
+	margin-left:-10px;
+	margin-top:5px;
+	font-size:12px;
+}
+#Menu img {
+	margin-left:50px;
+}
+#Menu a {
+	text-decoration:none;
+	display:block;
+	color:#CCCCCC;
+}
+#Menu li {
+	border:1px solid black;
+	height:20px;
+	list-style:none;
+	font-weight:bold;
+	background:url(images/Menu.gif) no-repeat;
+	color:#CCCCCC;
+	text-align:center;
+	position:relative;
+	cursor:pointer;
+}
+#Menu li:hover {
+	background:url(images/MenuOver.gif) no-repeat;
+}
+#Menu ul ul {
+	position:absolute;
+	top:0px;
+	left:75%;
+	width:115%;
+}
+#Menu ul ul, #Menu ul li:hover ul {
+	display:none;
+}
+#Menu ul li:hover ul, #Menu ul ul li:hover ul {
+	display:block;
+}
+/* End of CSS Menu */

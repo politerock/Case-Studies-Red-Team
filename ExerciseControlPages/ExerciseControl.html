@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0018)http://10.6.2.100/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Exercise Control</title>
+<link rel="stylesheet" type="text/css" href="./ExerciseControl_files/Styles.css">
+</head>
+<body>
+<div id="Container">
+	<div id="Top"></div>
+        <div id="Header">
+	        <div id="Title">Case Studies Exercise Control</div>
+		<div id="Subtitle">2020</div>
+
+	</div>
+	<div id="TopMenu"></div>
+	<div id="Menu">
+		<ul>
+		<li><a href="http://10.6.2.100/#DNS">DNS </a></li>
+		<li><a href="http://10.6.2.100/#SSLTLS">SSL/TLS</a></li>
+		<li><a href="http://10.6.2.100/#EMAIL">EMail Settings</a></li>
+                <li><a href="http://10.6.2.100/#STIKKED">Stikked (Pastebin)</a></li>
+                <li><a href="http://10.6.2.100/#SSH">SSH</a></li>
+                <li><a href="http://10.6.2.100/#TIME">Time Server</a></li>
+                <li><a href="http://10.6.2.100/#PASSWORDS">Passwords</a></li>
+		<li><a href="http://10.6.2.100/#NAGIOS">Nagios Passwords</a></li>
+                <li><a href="http://10.6.2.100/#AWESOMESAUCE">New for 2020</a></li>
+                </ul>
+                <ul>
+		<li><a href="https://disc.classex.tu/webpass">Change Team Passwords</a></li>
+                <li><a href="http://10.6.2.100/webmail">Web Mail</a></li>
+                <li><a href="http://10.6.2.100/stikked">Stikked (Pastebin)</a></li>
+		<li><a href="https://disc.classex.tu/nagios">Nagios</a></li>
+                <li><a href="http://10.6.2.100/nagios_help.html">Nagios Help</a></li>
+                </ul>
+                <ul>
+		<li><a href="http://repo.classex.tu/">Software and Repos</a></li>
+                <li><a href="http://10.6.2.100/public.html">Public Exercise Data</a></li>
+                </ul>
+                <ul>
+		<li><a href="http://mylittlepwny.classex.tu/">MyLittlePwny</a></li>
+                </ul>
+	</div>
+
+	<div id="BodyContainer">
+		&nbsp;<br>
+		<!-- Start of main content -->
+		<div id="Body">
+			<fieldset>
+			<legend>RULES:</legend>
+			<p>This system is Exercise Control; it is out-of-bounds for the exercise.</p>
+<p>Exercise control is not to be used to attack other systems. This means no <code>nmap</code> bounce scans, shell pivoting, or other pieces of cleverness. This goes for student teams as well as for the red team. If it comes from Exercise Control, you can assume it is to be trusted.</p>
+<p>To a point. This is Case Studies, after all.</p>
+			</fieldset>
+
+<h2>Using Exercise Control</h2>
+<p>Exercise Control lives at:</p>
+<ul>
+ <li>IP: 10.6.2.100</li>
+ <li>Hostname: disc.classex.tu</li>
+</ul>
+<p>Although, since you are visiting this page, I guess you figured that part out.</p>
+
+<a name="DNS"></a><h2>DNS</h2>
+<p>Exercise control provides DNS for the classroom. It contains the authoritative records for all hosts in the *.classex.tu zone and in the 10.6.0.0/24 address space. You must update your team's nameservers to forward all DNS requests not handled locally by your team to Exercise Control.</p>
+
+<p>Forwarders have been set up to point to the nameservers of all teams, so this approach allows you to resolve the names or addresses of systems from other teams.</p>
+
+<p>Some important hosts include:</p>
+<ul>
+ <li>proxmox.classex.tu    10.6.0.100</li>
+ <li>disc.classex.tu       10.6.2.100</li>
+ <li>repo.classex.tu       10.6.2.101</li>
+</ul>
+
+<a name="SSLTLS"></a><h2>SSL/TLS</h2>
+<p>A number of services provided by exercise control rely on TLS, (or more commonly called SSL). Such services include</p>
+<ul>
+ <li>TLS/SSL secured web pages [TCP/443]</li>
+ <li>Incoming mail, via POP3 server [TCP/995, or TCP/110 and STARTTLS]</li>
+ <li>Incoming mail, via IMAP server [TCP/993, or TCP/143 and STARTTLS]</li>
+ <li>Outgoing mail. via SMTP [TCP 25 via STARTTLS]</li>
+</ul>
+
+<p>So you want to validate the SSL/TLS connections with this server? I approve.</p>
+
+<p>All SSL/TLS keys have been signed by a single Certificate Authority (CA). Go ahead and import the <a href="http://10.6.2.100/resources/ca.crt">public key</a>.</p>
+<ul>
+ <li>SHA1 Fingerprint=8A:14:DA:31:65:B9:A8:92:F1:B5:05:FF:F1:B0:DD:47:FF:8D:8B:3B</li>
+</ul>
+<p>If your application trusts this CA, then all of the various SSL/TLS certificates should proceed without warnings or problems</p>
+
+<p>The method to import the CA's key varies depending on the program and the version. The following are typical instructions.</p>
+<ul>
+ <li><b><u>Internet Explorer</u></b>: Navigate IE → Tools → Internet Options; Content → Certificates → Import. Leave the intended purpose as "All". From the Certificate Import Wizard, select the file that contains the certificate for the CA, (<code>ca.crt</code>). Don't store the result in your personal certificate store; instead store it in "Trusted Root Certification Authorities".</li>
+ <li><b><u>Firefox</u></b>: Simply clicking on the link to the certificate will allow you to trust it. If you have downloaded it, Navigate Options → Advanced → Encryption → View Certificates. Select Authorities, then Import, then select the file ca.crt. In either case, trust this CA to identify web sites, email users, and software developers. If you examine the certificate, you should see the correct SHA1 fingerprint. </li>
+ <li><b><u>Thunderbird</u></b>: Navigate Tools → Options → Advanced → Certificates → View Certificates → Authorities → Import,  then select the file ca.crt; trust this CA to identify web sites, email users, and software developers. If you examine the certificate, you should see the correct SHA1 fingerprint.</li>
+ <li><b><u>Evolution</u></b>: Navigate Edit  → Preferences  → Certificates  →  Authorities  →  Import, then select the file ca.crt. In either case, trust this CA to identify web sites, email users, and software developers. If you examine the certificate, you should see the correct SHA1 fingerprint. </li>
+</ul>
+
+
+<a name="EMAIL"></a><h2>Email</h2>
+<p>Your email accounts and their credentials have been provided to you as part of the exercise's setup.</p>
+
+<p>You have a number of options to check your mail. The best choice is to use a dedicated email client; these have been provided on the default VMWare images.</p>
+
+<p>A secondary option is to use the provided web mail service, located at <a href="http://10.6.2.100/webmail">https://disc.classex.tu/webmail</a>. The page is protected by SSL/TLS (note the <code>https</code> rather than <code>http</code>. If you visit the unsecured page, you will be redirected to the SSL/TLS page. Note that red team has successfully attaked student teams by intercepting email traffic to and from Exercise Control. Encypt and verify!</p>
+
+<p>To set up an email client, connect directly to either the POP3 or the IMAP server. Remember that POP3 will download messages from the server and then delete them from the server This is very much not recommended, as it will cause you no end of trouble.</p>
+
+<p>As an example, consider Thunderbird 52.9 on Kali Linux. Start Thunderbird; by default, it asks the user to create a new email address with a service; this can be ignored. Instead, choose to skip this and use an existing email address.</p>
+
+<p>Next, Thunderbird asks for the user’s name, email address and password.</p>
+
+<p>Thunderbird attempts to look up this information in its list of email providers; this will necessarily fail. The user is then presented with a more advanced dialog box that allows the user to choose the server and the type of connection. For incoming mail, the user can select the protocol (POP3 or IMAP) and then the port (Auto, 110 or 995 for POP3; Auto, 143 or 993 for IMAP. For outgoing mail, the port needs to be selected (Auto, 25, 465, or 587). The user can then press the button labelled Re-test; Thunderbird will connect to the server, determine the SSL choice, and the authentication mechanism. The Postfix configuration provided on Exercise Control does not use authentication, so no authentication should be selected for SMTP.</p>
+
+<p>If the user has not downloaded and trusted the certificate for the signing server, then the user will be presented with an error explaining that the site is not trusted. This will provide a vector for a red team attack.</p>
+
+<p>It is possible to import the certificate for the signing server to avoid this error, although the process is non-intuitive. Select Preferences, then select Advanced and choose to Manage Certificates. Import the certificate for the signing server in the same fashion as Mozilla Firefox. Trust it to identify websites and email users.</p>
+
+<a name="STIKKED"></a><h2>Stikked (Pastebin)</h2>
+<p>Suppose that you found some confidential information and wanted to release it to the public without
+it being immediately traced back? One common service for such dumps in the real world is Pastebin. Well, that is a 
+commerical product, but there are a number of open source alternatives, including Stikked, which is 
+<a href="http://10.6.2.100/stikked">implemented</a> here on Exercise Control.</p>
+
+<p>At its heart, information security is about protecting information. If you find information about other teams
+and want to prove to the class (and the instructor!) that you have gained access, post it here. Anonymously. ☺
+Who knows? Perhaps teams would be willing to make a trade if it prevented the public release of their data?</p>
+
+<a name="SSH"></a><h2>SSH</h2>
+<p>Exercise control will be checking SSH via public key cryptography. The public key used for authentication on your SSH enabled systems is <a href="http://10.6.2.100/resources/ExerciseControlSSHCheckPublicKey">available for download</a>.</p>
+
+<a name="PASSWORDS"></a><h2>Passwords</h2>
+<p>The list of allowable passwords is available for <a href="http://10.6.2.100/resources/passwords.txt">download</a>.</p>
+
+<a name="NAGIOS"></a><h2>Nagios Passwords</h2>
+<p>To use Nagios, log in; the user name is team1admin, team2admin, ..., and the password is the password provided to the team at the start of class. This will allow you to view the state of the services for your team (only).</p>
+
+<a name="AWESOMESAUCE"></a><h2>New in 2020</h2>
+<p>Exercise Control now sits behind a pfSense firewall. Connections <em>to</em> Exercise Control should be made by hostname (disc.classex.tu) or by IP Address (10.6.1.100). However, connections <em>from</em> Exercise Control may be initiated from a wide range of IP addresses. This address range is shared with Red Team, so blocking by address may result in blocking service checks from Exercise Control.</p>
+
+<p>There is a new game, called <a href="http://mylittlepwny.classex.tu/">MyLittlePwny</a>. Check it out!</p>
+		</div>
+
+		<!-- End of main content -->
+
+	</div>
+
+	<div id="Footer">
+
+		Template comes from the cool folks at <a href="http://www.oswd.org/">Open Source Web Designs</a>.
+
+	</div>
+
+</div>
+
+
+
+
+</body></html>
