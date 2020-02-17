@@ -1,0 +1,17 @@
+# Make sure you set your environment variable correctly by running 'export ANSIBLE_HOST_KEY_CHECKING=False'
+# Stick your hosts in /etc/ansible/hosts before running
+# Run playbook by 'ansible-playbook nameofplaybook.yml'
+---
+
+- hosts: all
+  vars:
+    ansible_ssh_user: root
+    ansible_ssh_private_key_file: "/home/kali/case-studies/testing/keys/ssh/id_rsa"
+  tasks:
+    - name : System Info
+      debug:
+        msg: "OS is {{ ansible_os_family }}"
+
+    - name: Shutdown Kali Based Systems
+      command: /sbin/shutdown -h -t 1
+      when: ansible_os_family == "Kali GNU/Linux"
