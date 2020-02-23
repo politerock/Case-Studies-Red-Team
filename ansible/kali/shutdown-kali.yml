@@ -12,6 +12,10 @@
       debug:
         msg: "OS is {{ ansible_os_family }}"
 
+    - name: Append IP to hosts file
+      command: echo "disc.classex.tu IPHERE" >> /etc/hosts
+      when: ansible_os_family == "Kali GNU/Linux"
+
     - name: Shutdown Kali Based Systems
       command: /sbin/shutdown -h -t 1
       when: ansible_os_family == "Kali GNU/Linux"
