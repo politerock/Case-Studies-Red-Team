@@ -1,0 +1,27 @@
+# Install the sshpass program before running (apt install sshpass)
+---
+
+- hosts: all
+  vars:
+    ansible_ssh_user: zathras
+    ansible_ssh_pass: password1!
+    ansible_become_pass: password1!
+    #ansible_become_method: sudo/su
+  tasks:
+    - name : System Info
+      debug:
+        msg: "OS is {{ ansible_os_family }}"
+
+    - name: Append IP to hosts file Debian
+      shell: |
+       echo "IPHERE4 disc.classex.tu" >> /etc/hosts
+       /sbin/reboot
+      when: ansible_os_family == "Debian"
+      become: yes
+
+    - name: Append IP to hosts file Redhat
+      shell: |
+       echo "IPHERE4 disc.classex.tu" >> /etc/hosts
+       /sbin/reboot
+      when: ansible_os_family == "Redhat"
+      become: yes
