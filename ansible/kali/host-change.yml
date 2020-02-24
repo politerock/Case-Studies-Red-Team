@@ -2,6 +2,7 @@
 ---
 
 - hosts: all
+  no_log: true
   vars:
     ansible_ssh_user: zathras
     ansible_ssh_pass: password1!
