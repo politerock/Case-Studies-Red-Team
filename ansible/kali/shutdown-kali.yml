@@ -6,7 +6,7 @@
 - hosts: all
   vars:
     ansible_ssh_user: root
-    ansible_ssh_private_key_file: "/home/kali/case-studies/testing/keys/ssh/id_rsa"
+    ansible_ssh_private_key_file: "/home/kali/.ssh/id_rsa"
     become: yes
   tasks:
     - name : System Info
@@ -14,9 +14,12 @@
         msg: "OS is {{ ansible_os_family }}"
 
     - name: Append IP to hosts file
-      command: echo "IPHERE disc.classex.tu" >> /etc/hosts
+      #command: echo "IPHERE disc.classex.tu" >> /etc/hosts
+      lineinfile:
+              path: "/etc/hosts"
+              line: "IPHERE disc.classex.tu"
       when: ansible_os_family == "Kali GNU/Linux"
 
-    - name: Shutdown Kali Based Systems
-      command: /sbin/shutdown -h -t 1
-      when: ansible_os_family == "Kali GNU/Linux"
+      #- name: Shutdown Kali Based Systems
+      #command: /sbin/shutdown -h -t 1
+      #when: ansible_os_family == "Kali GNU/Linux"
