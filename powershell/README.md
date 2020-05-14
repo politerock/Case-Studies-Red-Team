@@ -1,2 +1,2 @@
-# Powershell Stuff
-Powershell scripts used during either of the two exercises.
+# PowerShell Stuff
+PowerShell scripts used during either of the two exercises.
